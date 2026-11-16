@@ -1,26 +1,24 @@
-<h1>Longest Word Game</h1>
+<div class="container py-5">
+  <div class="game-card mx-auto">
+    <h1 class="h3 mb-1">New game</h1>
+    <p class="text-muted mb-4">
+      Make the longest English word you can from these letters.
+      Each letter can only be used as many times as it appears.
+    </p>
 
-<h2>How to play</h2>
-<ol>
-  <li>You get <strong>10 random letters</strong>.</li>
-  <li>Make the <strong>longest English word</strong> you can using only those letters.</li>
-  <li>Each letter can be used <strong>only as many times as it appears</strong>.</li>
-  <li>Click <strong>Play</strong> to check your word and see your result.</li>
-</ol>
+    <ul class="letters list-unstyled d-flex gap-1 mb-4">
+      <% @letters.each do |letter| %>
+        <li class="letter"><%= letter %></li>
+      <% end %>
+    </ul>
 
-<h2>Your letters</h2>
-<ul>
-  <% @letters.each do |letter| %>
-    <li><%= letter %></li>
-  <% end %>
-</ul>
+    <form action="/score" method="post" data-turbo="false">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters.join(" ") %>
 
-<h2>Your word</h2>
-<form action="/score" method="post" data-turbo="false">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= hidden_field_tag :letters, @letters.join(" ") %>
-
-  <label for="word">Your word</label>
-  <input type="text" id="word" name="word">
-  <input type="submit" value="Play">
-</form>
+      <label for="word" class="form-label">Your word</label>
+      <input type="text" id="word" name="word" class="form-control mb-3" autocomplete="off" autofocus>
+      <input type="submit" value="Play" class="btn btn-dark w-100">
+    </form>
+  </div>
+</div>

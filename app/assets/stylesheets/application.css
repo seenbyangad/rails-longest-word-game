@@ -8,3 +8,28 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+body {
+  background: #eef1f5;
+  min-height: 100vh;
+}
+
+.game-card {
+  max-width: 520px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.letter {
+  flex: 1;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #212529;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
+}

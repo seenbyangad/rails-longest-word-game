@@ -1,11 +1,21 @@
-<h1>Your result</h1>
+<div class="container py-5">
+  <div class="game-card mx-auto">
+    <h1 class="h3 mb-4">Your result</h1>
 
-<% if @result == :not_in_grid %>
-  <p>❌ Sorry, but <strong><%= @word %></strong> can't be built out of <%= @letters.join(", ") %>.</p>
-<% elsif @result == :not_english %>
-  <p>❌ Sorry, but <strong><%= @word %></strong> does not seem to be a valid English word.</p>
-<% else %>
-  <p>✅ Congratulations! <strong><%= @word %></strong> is a valid English word!</p>
-<% end %>
+    <% if @result == :not_in_grid %>
+      <div class="alert alert-danger">
+        Sorry, but <strong><%= @word %></strong> can't be built out of <%= @letters.join(", ") %>.
+      </div>
+    <% elsif @result == :not_english %>
+      <div class="alert alert-warning">
+        Sorry, but <strong><%= @word %></strong> does not seem to be a valid English word.
+      </div>
+    <% else %>
+      <div class="alert alert-success">
+        <strong>Congratulations!</strong> <%= @word %> is a valid English word!
+      </div>
+    <% end %>
 
-<%= link_to "New game", new_path %>
+    <%= link_to "New game", new_path, class: "btn btn-dark w-100" %>
+  </div>
+</div>
