@@ -1,2 +1,19 @@
-<h1>Games#new</h1>
-<p>Find me in app/views/games/new.html.erb</p>
+<h1>Longest Word Game</h1>
+
+<h2>How to play</h2>
+<ol>
+  <li>You get <strong>10 random letters</strong>.</li>
+  <li>Make the <strong>longest English word</strong> you can using only those letters.</li>
+  <li>Each letter can be used <strong>only as many times as it appears</strong>.</li>
+  <li>Click <strong>Play</strong> to check your word and see your result.</li>
+</ol>
+
+<h2>Your letters</h2>
+<ul>
+  <% @letters.each do |letter| %>
+    <li><%= letter %></li>
+  <% end %>
+</ul>
+
+<h2>Your word</h2>
+<p><em>(The form arrives in step 4.)</em></p>
